@@ -15,19 +15,19 @@
 
 ### 🚧 Next Steps - MVP Porting (Priority Order)
 
-#### **STEP 1: Routing & Layout Foundation**
-- [ ] **ROUTE-001**: Set up React Router
-  - Install/configure react-router-dom
-  - Create route structure: `/`, `/dashboard`, `/missions`, `/missions/:id`, `/leaderboard`, `/profile`, `/wallet`
-  - Add 404 page
-- [ ] **ROUTE-002**: Port Sidebar component
-  - Adapt from MVP (use `useLocation` instead of `usePathname`)
-  - Add mobile responsive menu
-  - Integrate theme/language toggles
-- [ ] **ROUTE-003**: Create main Layout component
-  - Wrap routes with layout
-  - Include sidebar
-  - Add header/footer if needed
+#### **STEP 1: Routing & Layout Foundation** ✅ **COMPLETE**
+- [x] **ROUTE-001**: Set up React Router ✅
+  - ✅ Install/configure react-router-dom
+  - ✅ Create route structure: `/`, `/dashboard`, `/missions`, `/missions/:id`, `/leaderboard`, `/profile`, `/wallet`
+  - ✅ Add 404 page
+- [x] **ROUTE-002**: Port Sidebar component ✅
+  - ✅ Adapt from MVP (use `useLocation` instead of `usePathname`)
+  - ✅ Add mobile responsive menu
+  - ✅ Integrate theme/language toggles
+- [x] **ROUTE-003**: Create main Layout component ✅
+  - ✅ Wrap routes with layout
+  - ✅ Include sidebar
+  - ✅ Responsive design (mobile + desktop)
 
 #### **STEP 2: UI Components Port**
 - [ ] **UI-001**: Port essential UI components
