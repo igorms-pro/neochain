@@ -34,12 +34,12 @@ jobs:
       - name: Run unit tests
         run: pnpm run test:ci
 
+      - name: Build
+        run: pnpm run build
+
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
 
       - name: Run E2E tests
         run: pnpm run e2e:ci
-
-      - name: Build
-        run: pnpm run build
 
