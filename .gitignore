@@ -54,3 +54,6 @@ yarn.lock
 
 # Husky
 .husky/_/
+
+# MVP folder (local reference only, not versioned)
+mvp/
