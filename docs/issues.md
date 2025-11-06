@@ -15,7 +15,7 @@
 
 ### 🚧 Next Steps - MVP Porting (Priority Order)
 
-#### **STEP 1: Routing & Layout Foundation** ✅ **COMPLETE**
+#### **ISSUE-001: Routing & Layout Foundation** ✅ **COMPLETE**
 - [x] **ROUTE-001**: Set up React Router ✅
   - ✅ Install/configure react-router-dom
   - ✅ Create route structure: `/`, `/dashboard`, `/missions`, `/missions/:id`, `/leaderboard`, `/profile`, `/wallet`
@@ -29,14 +29,14 @@
   - ✅ Include sidebar
   - ✅ Responsive design (mobile + desktop)
 
-#### **STEP 2: UI Components Port**
+#### **ISSUE-002: UI Components Port**
 - [ ] **UI-001**: Port essential UI components
   - `badge.tsx`, `tabs.tsx`, `alert.tsx`, `separator.tsx`, `skeleton.tsx`
   - Adapt for Vite (remove Next.js specific code)
   - Ensure theme support
   - Add `data-testid` attributes
 
-#### **STEP 3: Gamification Core**
+#### **ISSUE-003: Gamification Core**
 - [ ] **GAME-001**: Port gamification library
   - Copy `lib/gamification.ts` from MVP
   - Adapt types/interfaces
@@ -49,7 +49,7 @@
   - Mock user data for development
   - Hooks: `useUser()`, `useUserStats()`
 
-#### **STEP 4: Dashboard**
+#### **ISSUE-004: Dashboard**
 - [ ] **DASH-001**: Create Dashboard page
   - Port layout from MVP
   - Stats grid (XP, Level, Streak, Badges)
@@ -59,7 +59,7 @@
   - Streak trend chart (line chart)
   - Style with Recharts
 
-#### **STEP 5: Missions System**
+#### **ISSUE-005: Missions System**
 - [ ] **MISS-001**: Create mission data model
   - Define `Mission` interface
   - Create mock missions data
@@ -74,7 +74,7 @@
   - Content area (reading, quiz, interactive, challenge)
   - Section completion logic
 
-#### **STEP 6: Leaderboard & Profile**
+#### **ISSUE-006: Leaderboard & Profile**
 - [ ] **LEAD-001**: Create Leaderboard page
   - Tabs (Overall, Streak, XP)
   - User ranking list
@@ -85,7 +85,7 @@
   - Achievements section
   - Settings section
 
-#### **STEP 7: Wallet (Mock)**
+#### **ISSUE-007: Wallet (Mock)**
 - [ ] **WALL-001**: Set up Web3 Context
   - React Context for wallet state
   - Mock wallet connection
@@ -95,7 +95,7 @@
   - Network selector
   - Transaction history (mock)
 
-#### **STEP 8: Data Persistence**
+#### **ISSUE-008: Data Persistence**
 - [ ] **DATA-001**: Set up LocalStorage
   - Save/load user data
   - Save/load mission progress
