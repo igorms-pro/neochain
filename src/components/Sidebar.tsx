@@ -37,6 +37,7 @@ export function Sidebar() {
 
       {/* Sidebar */}
       <aside
+        role="complementary"
         className={`fixed md:static w-64 h-screen bg-card border-r border-border flex flex-col transition-transform duration-300 transform md:translate-x-0 z-30 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
