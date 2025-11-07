@@ -45,7 +45,7 @@ describe('Sidebar', () => {
     expect(screen.getByRole('link', { name: /wallet/i })).toBeInTheDocument()
   })
 
-  it('renders user profile section', () => {
+  it('does not render user profile section (moved to header)', () => {
     render(
       <I18nextProvider i18n={i18n}>
         <MemoryRouter>
@@ -54,9 +54,8 @@ describe('Sidebar', () => {
       </I18nextProvider>
     )
 
-    expect(screen.getByText('Alex Kim')).toBeInTheDocument()
-    expect(screen.getByText('Level 5')).toBeInTheDocument()
-    expect(screen.getByText(/XP:/i)).toBeInTheDocument()
+    // User profile is now in PageHeader, not Sidebar
+    expect(screen.queryByText('Alex Kim')).not.toBeInTheDocument()
   })
 
   it('renders logout button in sidebar', () => {
@@ -204,7 +203,7 @@ describe('Sidebar', () => {
       expect(screen.getByText(/Web3 Learning/i)).toBeInTheDocument()
     })
 
-    it('shows full user profile when expanded', () => {
+    it('does not show user profile (moved to header)', () => {
       render(
         <I18nextProvider i18n={i18n}>
           <MemoryRouter>
@@ -213,9 +212,8 @@ describe('Sidebar', () => {
         </I18nextProvider>
       )
 
-      expect(screen.getByText('Alex Kim')).toBeInTheDocument()
-      expect(screen.getByText('Level 5')).toBeInTheDocument()
-      expect(screen.getByText(/XP:/i)).toBeInTheDocument()
+      // User profile is now in PageHeader, not Sidebar
+      expect(screen.queryByText('Alex Kim')).not.toBeInTheDocument()
     })
 
     it('shows navigation labels when expanded', () => {

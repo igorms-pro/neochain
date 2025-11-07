@@ -30,9 +30,17 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col md:flex-row">
       <Sidebar />
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 flex flex-col overflow-hidden">
+        {/* Fixed Header */}
         <PageHeader title={pageTitle} />
-        <Outlet />
+        {/* Fixed Page title for mobile - below header */}
+        <div className="md:hidden px-6 py-4 border-b border-border flex-shrink-0">
+          <h1 className="text-2xl font-bold" data-testid="page-title-mobile">{pageTitle}</h1>
+        </div>
+        {/* Scrollable content area */}
+        <div className="flex-1 overflow-auto">
+          <Outlet />
+        </div>
       </main>
     </div>
   )
