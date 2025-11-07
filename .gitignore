@@ -57,3 +57,6 @@ yarn.lock
 
 # MVP folder (local reference only, not versioned)
 mvp/
+
+# Agent roles (local planning, not versioned)
+docs/agents-roles.md

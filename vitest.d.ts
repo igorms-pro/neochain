@@ -9,3 +9,11 @@ declare module 'vitest' {
   interface AsymmetricMatchersContaining extends TestingLibraryMatchers<any, void> {}
 }
 
+// Declare global vi for vitest globals
+declare global {
+  const vi: typeof import('vitest').vi
+  const describe: typeof import('vitest').describe
+  const it: typeof import('vitest').it
+  const expect: typeof import('vitest').expect
+}
+
