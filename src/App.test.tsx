@@ -14,23 +14,27 @@ describe('App', () => {
     expect(document.body).toBeInTheDocument()
   })
 
-  it('renders home page by default', () => {
+  it('renders auth page by default', () => {
     render(
       <I18nextProvider i18n={i18n}>
         <App />
       </I18nextProvider>
     )
-    expect(screen.getByText('Welcome to NeoChain')).toBeInTheDocument()
+    expect(screen.getByTestId('auth-page')).toBeInTheDocument()
+    expect(screen.getByTestId('auth-logo')).toBeInTheDocument()
+    expect(screen.getByText(/Welcome Back/i)).toBeInTheDocument()
   })
 
-  it('renders sidebar with theme and language toggles', () => {
+  it('renders auth page with branding', () => {
     render(
       <I18nextProvider i18n={i18n}>
         <App />
       </I18nextProvider>
     )
-    expect(screen.getByTestId('theme-toggle-button')).toBeInTheDocument()
-    expect(screen.getByTestId('language-toggle-button')).toBeInTheDocument()
+    expect(screen.getByTestId('auth-branding')).toBeInTheDocument()
+    expect(screen.getByText('NEO')).toBeInTheDocument()
+    expect(screen.getByText('CHAIN')).toBeInTheDocument()
+    expect(screen.getByText(/Web3 Learning Platform/i)).toBeInTheDocument()
   })
 })
 

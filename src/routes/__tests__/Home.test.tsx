@@ -15,7 +15,6 @@ describe('Home', () => {
       </I18nextProvider>
     )
 
-    expect(screen.getByText('Welcome to NeoChain')).toBeInTheDocument()
     expect(
       screen.getByText(
         /Your Web3 learning journey starts here/i
@@ -23,7 +22,7 @@ describe('Home', () => {
     ).toBeInTheDocument()
   })
 
-  it('has correct heading structure', () => {
+  it('renders content area', () => {
     render(
       <I18nextProvider i18n={i18n}>
         <MemoryRouter>
@@ -32,8 +31,10 @@ describe('Home', () => {
       </I18nextProvider>
     )
 
-    const heading = screen.getByRole('heading', { level: 1 })
-    expect(heading).toHaveTextContent('Welcome to NeoChain')
+    const content = screen.getByText(
+      /Your Web3 learning journey starts here/i
+    )
+    expect(content).toBeInTheDocument()
   })
 })
 

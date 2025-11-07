@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Layout } from './components/Layout'
-import { Home } from './routes/Home'
+import { Auth } from './routes/Auth'
 import { Dashboard } from './routes/Dashboard'
 import { Missions } from './routes/Missions'
 import { MissionDetail } from './routes/MissionDetail'
@@ -12,12 +12,15 @@ import { NotFound } from './routes/NotFound'
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Auth />,
+  },
+  {
+    path: '/auth',
+    element: <Auth />,
+  },
+  {
     element: <Layout />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
       {
         path: 'dashboard',
         element: <Dashboard />,

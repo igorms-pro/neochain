@@ -59,7 +59,7 @@ describe('Sidebar', () => {
     expect(screen.getByText(/XP:/i)).toBeInTheDocument()
   })
 
-  it('renders theme and language toggle buttons', () => {
+  it('renders logout button in sidebar', () => {
     render(
       <I18nextProvider i18n={i18n}>
         <MemoryRouter>
@@ -68,8 +68,10 @@ describe('Sidebar', () => {
       </I18nextProvider>
     )
 
-    expect(screen.getByTestId('theme-toggle-button')).toBeInTheDocument()
-    expect(screen.getByTestId('language-toggle-button')).toBeInTheDocument()
+    // Theme and language toggles are now in PageHeader, not Sidebar
+    // Sidebar only has logout button
+    const logoutButton = screen.getByRole('button', { name: /logout/i })
+    expect(logoutButton).toBeInTheDocument()
   })
 
   it('toggles mobile menu when hamburger button is clicked', () => {
@@ -131,7 +133,7 @@ describe('Sidebar', () => {
     expect(dashboardLink).toHaveClass('bg-primary/20', 'text-primary')
   })
 
-  it('renders settings link', () => {
+  it('renders navigation links correctly', () => {
     render(
       <I18nextProvider i18n={i18n}>
         <MemoryRouter>
@@ -140,9 +142,10 @@ describe('Sidebar', () => {
       </I18nextProvider>
     )
 
-    const settingsLink = screen.getByRole('link', { name: /settings/i })
-    expect(settingsLink).toBeInTheDocument()
-    expect(settingsLink).toHaveAttribute('href', '/profile')
+    // Settings link is now in PageHeader, not Sidebar
+    // Verify navigation links are present
+    expect(screen.getByRole('link', { name: /dashboard/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /missions/i })).toBeInTheDocument()
   })
 
   it('renders logout button', () => {
@@ -156,6 +159,77 @@ describe('Sidebar', () => {
 
     const logoutButton = screen.getByRole('button', { name: /logout/i })
     expect(logoutButton).toBeInTheDocument()
+  })
+
+  describe('Collapsible sidebar', () => {
+    it('renders collapse button when expanded', () => {
+      render(
+        <I18nextProvider i18n={i18n}>
+          <MemoryRouter>
+            <Sidebar />
+          </MemoryRouter>
+        </I18nextProvider>
+      )
+
+      const toggleButtons = screen.getAllByTestId('sidebar-toggle-button')
+      // Should have at least one toggle button (desktop)
+      expect(toggleButtons.length).toBeGreaterThan(0)
+    })
+
+    it('has correct width classes for expanded and collapsed states', () => {
+      const { container } = render(
+        <I18nextProvider i18n={i18n}>
+          <MemoryRouter>
+            <Sidebar />
+          </MemoryRouter>
+        </I18nextProvider>
+      )
+
+      const sidebar = container.querySelector('aside[role="complementary"]')
+      // Should have width classes (w-64 for expanded, w-16 for collapsed)
+      expect(sidebar).toHaveClass('w-64')
+    })
+
+    it('shows full logo when expanded', () => {
+      render(
+        <I18nextProvider i18n={i18n}>
+          <MemoryRouter>
+            <Sidebar />
+          </MemoryRouter>
+        </I18nextProvider>
+      )
+
+      expect(screen.getByText('NEO')).toBeInTheDocument()
+      expect(screen.getByText('CHAIN')).toBeInTheDocument()
+      expect(screen.getByText(/Web3 Learning/i)).toBeInTheDocument()
+    })
+
+    it('shows full user profile when expanded', () => {
+      render(
+        <I18nextProvider i18n={i18n}>
+          <MemoryRouter>
+            <Sidebar />
+          </MemoryRouter>
+        </I18nextProvider>
+      )
+
+      expect(screen.getByText('Alex Kim')).toBeInTheDocument()
+      expect(screen.getByText('Level 5')).toBeInTheDocument()
+      expect(screen.getByText(/XP:/i)).toBeInTheDocument()
+    })
+
+    it('shows navigation labels when expanded', () => {
+      render(
+        <I18nextProvider i18n={i18n}>
+          <MemoryRouter>
+            <Sidebar />
+          </MemoryRouter>
+        </I18nextProvider>
+      )
+
+      expect(screen.getByRole('link', { name: /dashboard/i })).toBeInTheDocument()
+      expect(screen.getByRole('link', { name: /missions/i })).toBeInTheDocument()
+    })
   })
 })
 

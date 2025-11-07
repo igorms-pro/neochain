@@ -6,7 +6,6 @@ export function MissionDetail() {
   return (
     <div className="p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Mission Details</h1>
         <p className="text-muted-foreground">
           Mission ID: {id}
         </p>
